@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Forge Labs Website
 
-## Getting Started
+Marketing website for [Forge Labs](https://forgelabs.nz) — a Christchurch-based AI and technology consultancy.
 
-First, run the development server:
+**Live:** https://sierrawins.test.forgelabs.nz *(moving to forgelabs.nz)*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Stack
+
+- **Next.js 15** (App Router, TypeScript)
+- **Tailwind CSS v3** — v4 has a broken arm64 native binary, use v3
+- **shadcn/ui** (Radix UI, v3-compatible)
+- **Auth.js v5** — Google OAuth, restricted to `@forgelabs.nz` domain
+- **Octokit** — git-based CMS via GitHub API
+- **react-markdown + remark-gfm** — markdown rendering
+
+## Content Management
+
+Page content lives in `content/home.md` and uses a custom shortcode system:
+
+```
+{{hero title="..." subtitle="..." cta="Label|#anchor" image="..." overlay="dark"}}
+
+{{features}}
+- title: Feature Name
+  description: Description text.
+  icon: brain
+{{/features}}
+
+{{services}}
+- title: Service Name
+  description: Description text.
+  icon: code
+{{/services}}
+
+{{cta title="..." subtitle="..." cta="Label|#contact"}}
+
+{{contact}}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The shortcode parser lives in `src/lib/shortcodes.ts`. Content is read server-side and rendered via section components in `src/app/components/sections/`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Admin CMS (skeleton)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The `/admin` route is a skeleton — authentication is wired (Auth.js + Google OAuth) but the markdown editor UI is a placeholder. Planned: `@uiw/react-md-editor` for editing `content/home.md` via the GitHub API.
 
-## Learn More
+## Local Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm install
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> **Note:** Requires Node 18+. Uses Tailwind v3 — do not upgrade to v4 (arm64 native build is broken).
 
-## Deploy on Vercel
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Copy `.env.example` to `.env.local` and fill in values:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Variable | Description |
+|---|---|
+| `AUTH_SECRET` | Random secret for Auth.js session encryption |
+| `AUTH_GOOGLE_ID` | Google OAuth client ID (GCP: fl-sparkyn project) |
+| `AUTH_GOOGLE_SECRET` | Google OAuth client secret |
+| `GITHUB_TOKEN` | Fine-grained PAT with `contents:write` on this repo |
+| `NEXT_PUBLIC_SITE_URL` | Full URL of the site (e.g. `https://forgelabs.nz`) |
+
+## Deployment
+
+Deployed on Vercel via the `forgelabs-web` project, connected to this GitHub repo. Push to `main` triggers a production deployment.
+
+DNS: `forgelabs.nz` → `cname.vercel-dns.com` (Cloudflare proxy **must be OFF** for Vercel SSL to work).
+
+## Contact Form
+
+Uses a Google Apps Script endpoint. The form submits via `FormData` (not JSON) — the Apps Script expects `request.parameter`, not `request.postData.contents`.
+
+## Project Structure
+
+```
+src/
+  app/
+    page.tsx          # Home page — reads content/home.md, renders shortcodes
+    layout.tsx        # Root layout
+    admin/            # CMS admin (skeleton)
+    login/            # Auth.js login page
+    api/              # API routes (auth, contact form)
+  components/
+    sections/         # Hero, Features, Services, CTA, Contact section components
+    ui/               # shadcn/ui base components
+    layout/           # Header, Footer
+  lib/
+    shortcodes.ts     # Custom shortcode parser
+content/
+  home.md             # Page content (edit this to update the site)
+```
