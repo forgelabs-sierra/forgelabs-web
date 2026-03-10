@@ -1,6 +1,6 @@
 # Forge Labs Website
 
-Marketing website for [Forge Labs](https://forgelabs.nz) — a Christchurch-based AI and technology consultancy.
+Marketing website for [Forge Labs](https://www.forgelabs.nz) — a Christchurch-based AI and technology consultancy.
 
 **Live:** https://www.forgelabs.nz *(preview: https://sierrawins.test.forgelabs.nz)*
 
