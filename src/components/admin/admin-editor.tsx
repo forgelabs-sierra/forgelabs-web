@@ -152,8 +152,9 @@ export function AdminEditor({ userEmail }: AdminEditorProps) {
         setSaveStatus('error')
         return
       }
-      const data = await res.json()
-      setSha(data.sha)
+      // Refresh SHA from GitHub — PUT returns commitSha, not the blob SHA we need
+      const refreshed = await fetch('/api/content').then(r => r.json())
+      setSha(refreshed.sha)
       setInitialContent(contentRef.current)
       setIsDirty(false)
       setDraftRestored(false)
