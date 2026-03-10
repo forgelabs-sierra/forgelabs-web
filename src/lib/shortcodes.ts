@@ -30,6 +30,15 @@ export type ContactProps = {
   email?: string
 }
 
+export type TestimonialItem = { quote: string; author: string; role?: string; avatar?: string }
+export type TestimonialsProps = { items: TestimonialItem[] }
+
+export type TeamMember = { name: string; role: string; image: string; linkedin?: string }
+export type TeamProps = { members: TeamMember[] }
+
+export type CarouselSlide = { image: string; title?: string; subtitle?: string }
+export type CarouselProps = { slides: CarouselSlide[] }
+
 export type Block =
   | { type: 'markdown'; content: string }
   | { type: 'hero'; props: HeroProps }
@@ -37,6 +46,9 @@ export type Block =
   | { type: 'services'; props: ServicesProps }
   | { type: 'cta'; props: CTAProps }
   | { type: 'contact'; props: ContactProps }
+  | { type: 'testimonials'; props: TestimonialsProps }
+  | { type: 'team'; props: TeamProps }
+  | { type: 'carousel'; props: CarouselProps }
 
 function parseAttrs(attrStr: string): Record<string, string> {
   const attrs: Record<string, string> = {}
@@ -82,6 +94,27 @@ export function parseShortcodes(content: string): Block[] {
     } else if (name === 'contact') {
       const body_parsed = body.trim() ? (parseYaml(body.trim()) as Record<string, string> || {}) : {}
       block = { type: 'contact', props: { ...attrs, ...body_parsed } as ContactProps }
+    } else if (name === 'testimonials') {
+      try {
+        const parsed = parseYaml(body.trim()) as TestimonialItem[]
+        block = { type: 'testimonials', props: { items: parsed } }
+      } catch {
+        block = { type: 'markdown', content: body }
+      }
+    } else if (name === 'team') {
+      try {
+        const parsed = parseYaml(body.trim()) as TeamMember[]
+        block = { type: 'team', props: { members: parsed } }
+      } catch {
+        block = { type: 'markdown', content: body }
+      }
+    } else if (name === 'carousel') {
+      try {
+        const parsed = parseYaml(body.trim()) as CarouselSlide[]
+        block = { type: 'carousel', props: { slides: parsed } }
+      } catch {
+        block = { type: 'markdown', content: body }
+      }
     }
 
     if (block) {

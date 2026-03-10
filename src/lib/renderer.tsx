@@ -5,6 +5,9 @@ import { ServicesSection } from '@/components/sections/services'
 import { CTABanner } from '@/components/sections/cta-banner'
 import { ContactForm } from '@/components/sections/contact-form'
 import { MarkdownBlock } from '@/components/sections/markdown-block'
+import { TestimonialsSection } from '@/components/sections/testimonials'
+import { TeamSection } from '@/components/sections/team'
+import { CarouselSection } from '@/components/sections/carousel'
 import React from 'react'
 
 export function renderBlocks(blocks: Block[]): React.ReactNode[] {
@@ -16,6 +19,9 @@ export function renderBlocks(blocks: Block[]): React.ReactNode[] {
       case 'cta': return <CTABanner key={i} {...block.props} />
       case 'contact': return <ContactForm key={i} {...block.props} />
       case 'markdown': return <MarkdownBlock key={i} content={block.content} />
+      case 'testimonials': return <TestimonialsSection key={i} {...block.props} />
+      case 'team': return <TeamSection key={i} {...block.props} />
+      case 'carousel': return <CarouselSection key={i} {...block.props} />
       default: return null
     }
   })
