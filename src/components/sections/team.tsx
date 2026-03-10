@@ -9,9 +9,9 @@ export function TeamSection({ members }: TeamProps) {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Team</h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {members.map((member, i) => (
-            <Card key={i} className="overflow-hidden">
+            <Card key={i} className="overflow-hidden w-full sm:w-64">
               <CardContent className="pt-6 pb-6 flex flex-col items-center text-center">
                 {/* Circular photo */}
                 <div className="w-28 h-28 rounded-full overflow-hidden mb-4 flex-shrink-0">
