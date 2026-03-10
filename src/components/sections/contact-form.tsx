@@ -17,16 +17,15 @@ export function ContactForm({ heading, address, email }: ContactProps) {
     e.preventDefault()
     setStatus('sending')
     try {
+      const formData = new FormData()
+      formData.append('firstName', form.firstName)
+      formData.append('lastName', form.lastName)
+      formData.append('email', form.email)
+      formData.append('message', form.message)
       await fetch(FORM_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: form.firstName,
-          lastName: form.lastName,
-          email: form.email,
-          message: form.message,
-        }),
+        body: formData,
       })
       setStatus('sent')
       setForm({ firstName: '', lastName: '', email: '', message: '' })
