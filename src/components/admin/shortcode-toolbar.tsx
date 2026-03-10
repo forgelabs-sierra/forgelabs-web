@@ -28,6 +28,10 @@ const TEMPLATES: { label: string; text: string }[] = [
     text: '{{team}}\n- name: Team Member\n  role: Job Title\n  bio: Short bio goes here.\n  image: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80\n  linkedin: https://linkedin.com/in/username\n{{/team}}\n',
   },
   {
+    label: '+ Carousel',
+    text: '{{carousel}}\n- image: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format\n  title: Slide Title\n  subtitle: Slide subtitle text.\n- image: https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80&auto=format\n  title: Second Slide\n  subtitle: Another subtitle.\n{{/carousel}}\n',
+  },
+  {
     label: '+ Contact',
     text: '{{contact}}\nheading: Get in Touch\naddress: The Saltworks, 4 Ash Street, Christchurch Central City, Christchurch 8011\nemail: cameron@forgelabs.nz\n{{/contact}}\n',
   },
