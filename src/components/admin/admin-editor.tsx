@@ -170,7 +170,26 @@ export function AdminEditor({ userEmail }: AdminEditorProps) {
   }, [sha])
 
   const handleInsert = useCallback((text: string) => {
-    setContent(prev => prev + (prev.endsWith('\n') || prev === '' ? '' : '\n') + text)
+    // Try to insert at cursor position in the MDEditor textarea
+    const textarea = document.querySelector('.w-md-editor-text-input') as HTMLTextAreaElement
+    if (textarea) {
+      const start = textarea.selectionStart ?? textarea.value.length
+      const end = textarea.selectionEnd ?? textarea.value.length
+      const before = textarea.value.slice(0, start)
+      const after = textarea.value.slice(end)
+      const prefix = before.length > 0 && !before.endsWith('\n') ? '\n' : ''
+      const newContent = before + prefix + text + after
+      setContent(newContent)
+      // Restore cursor position after the inserted text
+      requestAnimationFrame(() => {
+        textarea.selectionStart = start + prefix.length + text.length
+        textarea.selectionEnd = start + prefix.length + text.length
+        textarea.focus()
+      })
+    } else {
+      // Fallback: append to end
+      setContent(prev => prev + (prev.endsWith('\n') || prev === '' ? '' : '\n') + text)
+    }
   }, [])
 
   const debouncedContent = useDebounce(content, 300)
