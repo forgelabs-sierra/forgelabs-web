@@ -8,7 +8,7 @@
   description: We build intelligent systems that amplify human capabilities rather than replace them.
   icon: users
 - title: Proven Implementation
-  description: We help adopt AI safely and effectively, ensuring teams feel confident and empowered.
+  description: At Forge Labs we help adopt AI safely and effectively, ensuring teams feel confident and empowered.
   icon: shield-check
 {{/features}}
 
