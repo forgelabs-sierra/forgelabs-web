@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 
 export function TeamSection({ members }: TeamProps) {
   return (
-    <section id="team" className="py-20">
+    <section id="team" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Our Team</h2>
