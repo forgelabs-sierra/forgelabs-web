@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button'
 
 interface ImageUploaderProps {
   onInsert: (text: string) => void
+  onUploaded?: () => void  // called after upload so editor can refresh SHA
 }
 
-export function ImageUploader({ onInsert }: ImageUploaderProps) {
+export function ImageUploader({ onInsert, onUploaded }: ImageUploaderProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -58,8 +59,11 @@ export function ImageUploader({ onInsert }: ImageUploaderProps) {
         // Clipboard write failed — non-fatal
       }
 
-      // Insert at cursor in editor
-      onInsert(url)
+      // Insert as YAML image field at cursor
+      onInsert(`image: ${url}`)
+
+      // Notify editor to refresh SHA — upload committed to GitHub, invalidating current SHA
+      onUploaded?.()
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Upload failed')
     } finally {

@@ -170,6 +170,11 @@ export function AdminEditor({ userEmail }: AdminEditorProps) {
     }
   }, [sha])
 
+  const handleShaRefresh = useCallback(async () => {
+    const refreshed = await fetch('/api/content').then(r => r.json())
+    if (refreshed.sha) setSha(refreshed.sha)
+  }, [])
+
   const handleInsert = useCallback((text: string) => {
     // Try to insert at cursor position in the MDEditor textarea
     const textarea = document.querySelector('.w-md-editor-text-input') as HTMLTextAreaElement
@@ -214,7 +219,7 @@ export function AdminEditor({ userEmail }: AdminEditorProps) {
         </div>
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground hidden sm:block">{userEmail}</span>
-          <ImageUploader onInsert={handleInsert} />
+          <ImageUploader onInsert={handleInsert} onUploaded={handleShaRefresh} />
           <Button variant="outline" size="sm" onClick={() => signOut({ callbackUrl: '/login' })}>
             Sign out
           </Button>
