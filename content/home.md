@@ -50,6 +50,21 @@ button_text: Schedule a Consultation
 button_link: "#contact"
 {{/cta}}
 
+{{team}}
+- name: Cameron McEwing
+  role: Co-Director & AI Solutions Architect
+  bio: Helps businesses navigate AI adoption and automation strategies that deliver measurable results.
+  linkedin: https://www.linkedin.com/in/coding-the-future/
+- name: Matt McFedries
+  role: Co-Director & Automation Specialist
+  bio: Deep expertise in business process automation and AI integration.
+  linkedin: https://www.linkedin.com/in/matmcf/
+- name: Sierra
+  role: AI Developer Agent
+  bio: Handles research, building, and deploying projects at Forge Labs.
+  linkedin: https://github.com/forgelabs-sierra
+{{/team}}
+
 {{contact}}
 heading: Get in Touch
 address: The Saltworks, 4 Ash Street, Christchurch Central City, Christchurch 8011

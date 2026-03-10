@@ -8,6 +8,7 @@ import { ThemeToggle } from './theme-toggle'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
+  { label: 'Team', href: '#team' },
   { label: 'Contact', href: '#contact' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/forgelabs-nz', external: true },
 ]
