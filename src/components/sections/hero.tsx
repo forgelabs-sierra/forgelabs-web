@@ -6,29 +6,30 @@ export function HeroSection({ title, subtitle, cta, cta2, image, overlay }: Hero
   const [ctaText, ctaLink] = cta?.split('|') ?? ['Get Started', '#contact']
   const [cta2Text, cta2Link] = cta2?.split('|') ?? []
 
+  const overlayClass =
+    overlay === 'dark' ? 'bg-black/60' :
+    overlay === 'light' ? 'bg-white/60' :
+    overlay === 'gradient' ? 'bg-gradient-to-t from-black/80 to-transparent' :
+    'bg-black/50'
+
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {image && (
+    <section style={{ position: 'relative', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+      {image ? (
         <>
           <Image
             src={image}
             alt="Hero background"
             fill
-            className="object-cover"
+            sizes="100vw"
+            style={{ objectFit: 'cover', zIndex: 0 }}
             priority
           />
-          <div className={`absolute inset-0 ${
-            overlay === 'dark' ? 'bg-black/60' :
-            overlay === 'light' ? 'bg-white/60' :
-            overlay === 'gradient' ? 'bg-gradient-to-t from-black/80 to-transparent' :
-            'bg-black/50'
-          }`} />
+          <div style={{ position: 'absolute', inset: 0, zIndex: 1 }} className={overlayClass} />
         </>
-      )}
-      {!image && (
+      ) : (
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
       )}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <div style={{ position: 'relative', zIndex: 2 }} className="max-w-4xl mx-auto px-6 text-center">
         <h1 className={`text-5xl md:text-7xl font-bold tracking-tighter mb-6 ${image ? 'text-white' : ''}`}>
           {title}
         </h1>
@@ -42,8 +43,13 @@ export function HeroSection({ title, subtitle, cta, cta2, image, overlay }: Hero
             <a href={ctaLink}>{ctaText}</a>
           </Button>
           {cta2Text && (
-            <Button size="lg" variant="outline" asChild className={image ? 'border-white text-white hover:bg-white/20 hover:text-white' : ''}>
-              <a href={cta2Link}>{cta2Text}</a>
+            <Button
+              size="lg"
+              variant="outline"
+              asChild
+              className={image ? 'border-white text-white bg-transparent hover:bg-white/20 hover:text-white' : ''}
+            >
+              <a href={cta2Link ?? '#'}>{cta2Text}</a>
             </Button>
           )}
         </div>

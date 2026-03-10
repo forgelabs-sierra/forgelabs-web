@@ -15,7 +15,10 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
-        <Link href="/" className="font-bold text-xl">Forge Labs</Link>
+        <Link href="/" className="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.svg" alt="Forge Labs" height={36} style={{ height: '36px', width: 'auto' }} />
+        </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(l => (
             <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">

@@ -1,47 +1,57 @@
-{{hero title="Build Smarter with AI" subtitle="Forge Labs delivers practical AI solutions that transform how New Zealand businesses operate, compete, and grow." cta="Get Started|#contact" cta2="Our Services|#services"}}
+{{hero title="Practical AI Solutions for Modern Businesses" subtitle="We help businesses adopt AI and automation to remain competitive while freeing teams to focus on high-value work that moves the dial." cta="Get Started|#contact" cta2="Our Services|#services" image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format" overlay="dark"}}
 
 {{features}}
-- title: "Practical AI"
-  description: "We build AI solutions that solve real business problems — not demos, but production-ready systems that deliver measurable results."
-  icon: "brain"
-- title: "Expert Team"
-  description: "Our team brings deep expertise across machine learning, software engineering, and business consulting to every engagement."
-  icon: "users"
-- title: "Proven Results"
-  description: "From automation to intelligent analytics, our clients see tangible ROI within weeks, not months."
-  icon: "shield-check"
+- title: Practical AI Strategies
+  description: With deep research and real-world experience, we implement AI solutions that deliver measurable business value.
+  icon: brain
+- title: Human-Centered Automation
+  description: We build intelligent systems that amplify human capabilities rather than replace them.
+  icon: users
+- title: Proven Implementation
+  description: We help adopt AI safely and effectively, ensuring teams feel confident and empowered.
+  icon: shield-check
 {{/features}}
 
 {{services}}
-- title: "AI Strategy & Roadmapping"
-  description: "We help you identify the highest-value AI opportunities in your business and build a practical roadmap to capture them."
-  icon: "map"
-- title: "Custom AI Development"
-  description: "From NLP and computer vision to recommendation engines, we build bespoke AI solutions tailored to your unique requirements."
-  icon: "code"
-- title: "Data & Analytics"
-  description: "Turn raw data into strategic insights with our data engineering, analytics, and business intelligence services."
-  icon: "bar-chart-3"
-- title: "AI Automation"
-  description: "Automate repetitive workflows, reduce manual errors, and free your team to focus on high-value work."
-  icon: "bot"
-- title: "LLM Integration"
-  description: "Integrate large language models into your products and workflows — from document processing to intelligent assistants."
-  icon: "lightbulb"
-- title: "Training & Upskilling"
-  description: "Hands-on AI training for your team. We build internal capability so you're not dependent on external vendors forever."
-  icon: "users"
+- title: AI Strategy & Roadmap
+  description: Map out where AI delivers the most value in your organisation. We assess readiness, identify high-impact opportunities, and build a practical roadmap from pilot to scale.
+  icon: map
+- title: AI-Powered Developer Productivity
+  description: Multiply your development team's output without hiring. We embed AI tooling into your existing dev workflow — code generation, review, testing, and documentation — so your engineers ship faster with fewer defects.
+  icon: code
+- title: Legacy Codebase Modernisation
+  description: Unlock codebases that have outgrown their documentation. We use AI to reverse-engineer understanding, generate documentation, and chart a modernisation path.
+  icon: file-search
+- title: Agentic AI Development
+  description: Build autonomous AI agents that handle multi-step workflows end-to-end. From GCP ADK to custom agent architectures, we design, build, and deploy agents that work alongside your team.
+  icon: bot
+- title: Enterprise AI Deployment
+  description: Deploy and configure enterprise AI platforms — Gemini Enterprise, custom portals, and domain-specific AI gems. We handle tuning, access control, and integration.
+  icon: server
+- title: Google Workspace & GCP AI Tooling
+  description: Build AI-powered workflows and agents directly inside the tools your team already uses. Gmail, Docs, Sheets, Drive — automated with intelligence, not just macros.
+  icon: mail
+- title: AI Platform & Stack Advisory
+  description: Cut through the noise. We evaluate AI platforms, models, and tooling against your actual requirements — then recommend the stack that fits your budget, team, and timeline.
+  icon: search
+- title: AI-Enhanced Business Analysis
+  description: Apply AI to business analysis and project workflows — from requirements gathering to stakeholder reporting. Faster insights, better-structured deliverables, less manual work.
+  icon: bar-chart-3
+- title: AI Adoption Project Management
+  description: End-to-end project delivery for AI initiatives. We manage the full lifecycle from strategy and vendor selection through to rollout, training, and handover.
+  icon: kanban
+- title: Research & Solution Design
+  description: Not sure where to start? We research your options, prototype approaches, and present clear pathways forward — so you can make informed decisions before committing budget.
+  icon: lightbulb
 {{/services}}
 
-{{cta}}
-title: "Ready to start your AI journey?"
-subtitle: "Let's talk about what's possible for your business. No jargon, no hard sell — just a practical conversation about your goals."
-button_text: "Book a Free Consultation"
+{{cta title="Ready to Transform Your Business?" subtitle="Let's discuss how AI and automation can help your organisation stay competitive and focus on what matters most." image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80&auto=format" overlay="dark"}}
+button_text: Schedule a Consultation
 button_link: "#contact"
 {{/cta}}
 
 {{contact}}
-heading: "Get in Touch"
-email: "cameron@forgelabs.nz"
-address: "Christchurch, New Zealand"
+heading: Get in Touch
+address: The Saltworks, 4 Ash Street, Christchurch Central City, Christchurch 8011
+email: cameron@forgelabs.nz
 {{/contact}}
