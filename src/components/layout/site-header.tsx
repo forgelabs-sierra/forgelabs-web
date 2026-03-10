@@ -17,7 +17,7 @@ export function SiteHeader() {
       <div className="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Forge Labs" height={36} style={{ height: '36px', width: 'auto' }} />
+          <img src="/logo.svg" alt="Forge Labs" style={{ height: '32px', width: 'auto', minWidth: '120px' }} />
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(l => (
@@ -25,6 +25,14 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
+          <a
+            href="https://www.linkedin.com/company/forgelabs-nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            LinkedIn
+          </a>
           <Button size="sm" asChild>
             <a href="#contact">Get Started</a>
           </Button>
@@ -39,6 +47,14 @@ export function SiteHeader() {
               {navLinks.map(l => (
                 <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-lg font-medium">{l.label}</a>
               ))}
+              <a
+                href="https://www.linkedin.com/company/forgelabs-nz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-medium"
+              >
+                LinkedIn
+              </a>
               <Button asChild><a href="#contact" onClick={() => setOpen(false)}>Get Started</a></Button>
             </nav>
           </SheetContent>

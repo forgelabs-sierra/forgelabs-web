@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button'
 import type { CTAProps } from '@/lib/shortcodes'
 
 export function CTABanner({ title, subtitle, image, overlay, button_text, button_link }: CTAProps) {
-  const overlayClass = overlay === 'dark' ? 'bg-black/60' : 'bg-black/50'
+  const overlayClass = overlay === 'dark' ? 'bg-black/65' : 'bg-black/65'
 
   return (
-    <section style={{ position: 'relative', padding: '6rem 0', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', padding: '8rem 0', overflow: 'hidden' }}>
       {image ? (
         <>
           <Image src={image} alt="CTA background" fill sizes="100vw" style={{ objectFit: 'cover', zIndex: 0 }} />
@@ -25,7 +25,11 @@ export function CTABanner({ title, subtitle, image, overlay, button_text, button
           </p>
         )}
         {button_text && (
-          <Button size="lg" asChild className={image ? 'bg-white text-gray-900 hover:bg-white/90' : ''}>
+          <Button
+            size="lg"
+            asChild
+            className={image ? 'bg-white text-gray-900 hover:bg-white/90 ring-2 ring-white/30 hover:ring-white/60' : ''}
+          >
             <a href={button_link ?? '#contact'}>{button_text}</a>
           </Button>
         )}
