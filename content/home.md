@@ -54,14 +54,17 @@ button_link: "#contact"
 - name: Cameron McEwing
   role: Co-Director & AI Solutions Architect
   bio: Helps businesses navigate AI adoption and automation strategies that deliver measurable results.
+  image: /images/cameron_avatar.png
   linkedin: https://www.linkedin.com/in/coding-the-future/
 - name: Matt McFedries
   role: Co-Director & Automation Specialist
   bio: Deep expertise in business process automation and AI integration.
+  image: /images/Generated Image March 11, 2026 - 10_01AM.jpg
   linkedin: https://www.linkedin.com/in/matmcf/
 - name: Sierra
   role: AI Developer Agent
   bio: Handles research, building, and deploying projects at Forge Labs.
+  image: /images/Generated Image March 11, 2026 - 10_10AM.jpg
   linkedin: https://github.com/forgelabs-sierra
 {{/team}}
 
