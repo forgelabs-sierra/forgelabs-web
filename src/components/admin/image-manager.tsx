@@ -31,6 +31,7 @@ export function ImageManager({ onInsert, onUploaded }: ImageManagerProps) {
   const [loadingImages, setLoadingImages] = useState(false)
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
+  const [deletingImage, setDeletingImage] = useState<string | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
 
   const fetchImages = useCallback(async () => {
@@ -59,6 +60,27 @@ export function ImageManager({ onInsert, onUploaded }: ImageManagerProps) {
   function handleThumbnailClick(img: ImageEntry) {
     onInsert(`image: ${img.url}`)
     setOpen(false)
+  }
+
+  async function handleDelete(img: ImageEntry, e: React.MouseEvent) {
+    e.stopPropagation()
+    if (!confirm(`Delete ${img.name}?`)) return
+    setDeletingImage(img.name)
+    try {
+      const res = await fetch('/api/images', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: img.name }),
+      })
+      if (res.ok) {
+        onUploaded?.() // refresh SHA — delete commits to GitHub
+        await fetchImages()
+      }
+    } catch {
+      // silently fail
+    } finally {
+      setDeletingImage(null)
+    }
   }
 
   async function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -165,24 +187,37 @@ export function ImageManager({ onInsert, onUploaded }: ImageManagerProps) {
                 ) : (
                   <div className="grid grid-cols-4 gap-3">
                     {images.map(img => (
-                      <button
-                        key={img.name}
-                        onClick={() => handleThumbnailClick(img)}
-                        className="flex flex-col items-center gap-1 group"
-                        title={img.name}
-                      >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={img.downloadUrl ?? ''}
-                          alt={img.name}
-                          width={96}
-                          height={96}
-                          className="w-24 h-24 object-cover rounded border border-gray-200 group-hover:ring-2 group-hover:ring-blue-500 transition-all"
-                        />
+                      <div key={img.name} className="flex flex-col items-center gap-1 group relative">
+                        <button
+                          onClick={() => handleThumbnailClick(img)}
+                          className="relative"
+                          title={`Insert ${img.name}`}
+                        >
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={img.downloadUrl ?? ''}
+                            alt={img.name}
+                            width={96}
+                            height={96}
+                            className="w-24 h-24 object-cover rounded border border-gray-200 group-hover:ring-2 group-hover:ring-blue-500 transition-all"
+                          />
+                          {deletingImage === img.name && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-white/70 rounded">
+                              <Spinner />
+                            </div>
+                          )}
+                        </button>
                         <span className="text-xs text-gray-600 w-full text-center truncate px-1">
                           {img.name}
                         </span>
-                      </button>
+                        <button
+                          onClick={(e) => handleDelete(img, e)}
+                          className="text-xs text-red-500 hover:text-red-700 transition-colors"
+                          title={`Delete ${img.name}`}
+                        >
+                          🗑 Delete
+                        </button>
+                      </div>
                     ))}
                   </div>
                 )}
