@@ -6,6 +6,7 @@ import { signOut } from 'next-auth/react'
 import { parseShortcodes } from '@/lib/shortcodes'
 import { renderBlocks } from '@/lib/renderer'
 import { ShortcodeToolbar } from './shortcode-toolbar'
+import { ImageUploader } from './image-uploader'
 import { Button } from '@/components/ui/button'
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false })
@@ -213,6 +214,7 @@ export function AdminEditor({ userEmail }: AdminEditorProps) {
         </div>
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground hidden sm:block">{userEmail}</span>
+          <ImageUploader onInsert={handleInsert} />
           <Button variant="outline" size="sm" onClick={() => signOut({ callbackUrl: '/login' })}>
             Sign out
           </Button>

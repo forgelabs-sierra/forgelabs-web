@@ -33,7 +33,7 @@ export type ContactProps = {
 export type TestimonialItem = { quote: string; author: string; role?: string; avatar?: string }
 export type TestimonialsProps = { items: TestimonialItem[] }
 
-export type TeamMember = { name: string; role: string; image?: string; linkedin?: string }
+export type TeamMember = { name: string; role: string; image?: string; bio?: string; linkedin?: string }
 export type TeamProps = { members: TeamMember[] }
 
 export type CarouselSlide = { image: string; title?: string; subtitle?: string }

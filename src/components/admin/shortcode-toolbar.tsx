@@ -25,7 +25,7 @@ const TEMPLATES: { label: string; text: string }[] = [
   },
   {
     label: '+ Team',
-    text: '{{team}}\n- name: Team Member\n  role: Job Title\n  image: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80\n  linkedin: https://linkedin.com/in/username\n{{/team}}\n',
+    text: '{{team}}\n- name: Team Member\n  role: Job Title\n  bio: Short bio goes here.\n  image: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80\n  linkedin: https://linkedin.com/in/username\n{{/team}}\n',
   },
   {
     label: '+ Contact',
