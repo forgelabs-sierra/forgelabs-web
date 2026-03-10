@@ -8,12 +8,13 @@ import { Menu } from 'lucide-react'
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Contact', href: '#contact' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/forgelabs-nz', external: true },
 ]
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <div className="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -21,19 +22,17 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(l => (
-            <a key={l.href} href={l.href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <a
+              key={l.href}
+              href={l.href}
+              target={l.external ? '_blank' : undefined}
+              rel={l.external ? 'noopener noreferrer' : undefined}
+              className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors"
+            >
               {l.label}
             </a>
           ))}
-          <a
-            href="https://www.linkedin.com/company/forgelabs-nz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            LinkedIn
-          </a>
-          <Button size="sm" asChild>
+          <Button size="sm" asChild className="h-9 px-4 font-semibold">
             <a href="#contact">Get Started</a>
           </Button>
         </nav>
@@ -45,17 +44,9 @@ export function SiteHeader() {
             <SheetTitle className="sr-only">Navigation</SheetTitle>
             <nav className="flex flex-col gap-4 mt-8">
               {navLinks.map(l => (
-                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-lg font-medium">{l.label}</a>
+                <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-lg font-medium text-slate-700">{l.label}</a>
               ))}
-              <a
-                href="https://www.linkedin.com/company/forgelabs-nz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg font-medium"
-              >
-                LinkedIn
-              </a>
-              <Button asChild><a href="#contact" onClick={() => setOpen(false)}>Get Started</a></Button>
+              <Button asChild className="mt-2"><a href="#contact" onClick={() => setOpen(false)}>Get Started</a></Button>
             </nav>
           </SheetContent>
         </Sheet>

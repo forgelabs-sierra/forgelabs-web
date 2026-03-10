@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import type { FeaturesProps } from '@/lib/shortcodes'
 import { Brain, Users, ShieldCheck, Star } from 'lucide-react'
 
@@ -11,27 +10,23 @@ const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function FeaturesSection({ items }: FeaturesProps) {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-2">Why Forge Labs</p>
-          <h2 className="text-4xl font-bold tracking-tight">How We Work</h2>
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-3">Why Forge Labs</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">How We Work</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {items.map((item, i) => {
             const Icon = ICONS[item.icon ?? 'star'] ?? Star
             return (
-              <Card key={i} className="hover:-translate-y-1 hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
-                <CardHeader>
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-4">
-                    <Icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </CardContent>
-              </Card>
+              <div key={i} className="relative p-8 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-200 group">
+                <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-5 shadow-sm shadow-primary/20 group-hover:scale-110 transition-transform duration-200">
+                  <Icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed">{item.description}</p>
+              </div>
             )
           })}
         </div>

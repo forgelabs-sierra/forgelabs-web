@@ -35,12 +35,12 @@ export function ContactForm({ heading, address, email }: ContactProps) {
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-widest text-primary uppercase mb-2">Contact</p>
-          <h2 className="text-4xl font-bold tracking-tight">{heading ?? 'Get in Touch'}</h2>
-          <p className="text-muted-foreground mt-2">Get in touch with us to discuss how we can help your business.</p>
+          <p className="text-xs font-bold tracking-[0.2em] uppercase text-primary mb-3">Contact</p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">{heading ?? 'Get in Touch'}</h2>
+          <p className="text-slate-500 mt-3">Get in touch with us to discuss how we can help your business.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <form className="space-y-4" onSubmit={handleSubmit}>
