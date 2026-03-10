@@ -4,9 +4,11 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Menu } from 'lucide-react'
+import { ThemeToggle } from './theme-toggle'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
+  { label: 'Team', href: '#team' },
   { label: 'Contact', href: '#contact' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/forgelabs-nz', external: true },
 ]
@@ -32,6 +34,7 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           <Button size="sm" asChild className="h-9 px-4 font-semibold">
             <a href="#contact">Get Started</a>
           </Button>

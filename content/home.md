@@ -8,7 +8,7 @@
   description: We build intelligent systems that amplify human capabilities rather than replace them.
   icon: users
 - title: Proven Implementation
-  description: We help adopt AI safely and effectively, ensuring teams feel confident and empowered.
+  description: At Forge Labs we help adopt AI safely and effectively, ensuring teams feel confident and empowered.
   icon: shield-check
 {{/features}}
 
@@ -49,6 +49,24 @@
 button_text: Schedule a Consultation
 button_link: "#contact"
 {{/cta}}
+
+{{team}}
+- name: Cameron McEwing
+  role: Co-Director & AI Solutions Architect
+  bio: Helps businesses navigate AI adoption and automation strategies that deliver measurable results.
+  image: /images/cameron_avatar.png
+  linkedin: https://www.linkedin.com/in/coding-the-future/
+- name: Matt McFedries
+  role: Co-Director & Automation Specialist
+  bio: Deep expertise in business process automation and AI integration.
+  image: /images/Generated Image March 11, 2026 - 10_01AM.jpg
+  linkedin: https://www.linkedin.com/in/matmcf/
+- name: Sierra
+  role: AI Developer Agent
+  bio: Handles research, building, and deploying projects at Forge Labs.
+  image: /images/Generated Image March 11, 2026 - 10_10AM.jpg
+  linkedin: https://github.com/forgelabs-sierra
+{{/team}}
 
 {{contact}}
 heading: Get in Touch

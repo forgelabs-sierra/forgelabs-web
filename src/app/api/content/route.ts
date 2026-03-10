@@ -2,6 +2,7 @@ import { Octokit } from "@octokit/rest"
 import { auth } from "@/lib/auth"
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN })
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'main'
 
 export async function GET() {
   const session = await auth()
@@ -12,6 +13,7 @@ export async function GET() {
       owner: process.env.GITHUB_OWNER!,
       repo: process.env.GITHUB_REPO!,
       path: "content/home.md",
+      ref: GITHUB_BRANCH,
     })
     if ("content" in data) {
       return Response.json({
@@ -38,6 +40,7 @@ export async function PUT(request: Request) {
       message: `Update homepage content — ${session.user?.email}`,
       content: Buffer.from(content).toString("base64"),
       sha,
+      branch: GITHUB_BRANCH,
       committer: {
         name: session.user?.name || "CMS Admin",
         email: session.user?.email || "admin@forgelabs.nz",
