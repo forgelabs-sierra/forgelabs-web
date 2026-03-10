@@ -1,4 +1,4 @@
-{{hero title="Practical AI Solutions for Modern Businesses" subtitle="We help businesses adopt AI and automation to remain competitive while freeing teams to focus on high-value work that moves the dial." cta="Get Started|#contact" cta2="Our Services|#services" image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format" overlay="dark"}}
+{{hero title="Practical AI Solutions for Modern Businesses" subtitle="Forge Labs helps businesses adopt AI and automation to remain competitive while freeing teams to focus on high-value work that moves the dial." cta="Get Started|#contact" cta2="Our Services|#services" image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format" overlay="dark"}}
 
 {{features}}
 - title: Practical AI Strategies
