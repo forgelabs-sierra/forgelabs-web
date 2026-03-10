@@ -2,6 +2,10 @@ import type { TeamProps } from '@/lib/shortcodes'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 
+function getInitials(name: string) {
+  return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
+}
+
 export function TeamSection({ members }: TeamProps) {
   return (
     <section className="py-20">
@@ -12,14 +16,20 @@ export function TeamSection({ members }: TeamProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {members.map((member, i) => (
             <Card key={i} className="overflow-hidden">
-              <div className="relative aspect-square">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover rounded-t-lg"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
+              <div className="relative aspect-square bg-muted">
+                {member.image ? (
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover rounded-t-lg"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100 rounded-t-lg">
+                    <span className="text-4xl font-bold text-slate-400">{getInitials(member.name)}</span>
+                  </div>
+                )}
               </div>
               <CardContent className="pt-4 pb-4">
                 <p className="font-semibold">{member.name}</p>
