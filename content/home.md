@@ -41,7 +41,7 @@
   description: End-to-end project delivery for AI initiatives. We manage the full lifecycle from strategy and vendor selection through to rollout, training, and handover.
   icon: kanban
 - title: OpenClaw Mac Mini — Onsite AI Deployment
-  description: Deploy a private, always-on AI assistant directly inside your business on a Mac Mini. OpenClaw runs locally on your network — no data leaves your premises. We handle setup, configuration, and integration so your team gets the benefits of agentic AI with full data sovereignty.
+  description: Deploy an always-on AI assistant inside your business on a dedicated Mac Mini. OpenClaw runs on your own hardware and network — no shared cloud infrastructure, no third-party platforms. Your data goes directly to Anthropic's API under your own account and their enterprise privacy commitments. We handle setup, configuration, and integration so your team gets the full power of agentic AI on day one.
   icon: cpu
 - title: Research & Solution Design
   description: Not sure where to start? We research your options, prototype approaches, and present clear pathways forward — so you can make informed decisions before committing budget.
