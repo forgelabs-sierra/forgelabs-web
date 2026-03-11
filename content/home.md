@@ -40,6 +40,9 @@
 - title: AI Adoption Project Management
   description: End-to-end project delivery for AI initiatives. We manage the full lifecycle from strategy and vendor selection through to rollout, training, and handover.
   icon: kanban
+- title: OpenClaw Mac Mini — Onsite AI Deployment
+  description: Deploy a private, always-on AI assistant directly inside your business on a Mac Mini. OpenClaw runs locally on your network — no data leaves your premises. We handle setup, configuration, and integration so your team gets the benefits of agentic AI with full data sovereignty.
+  icon: cpu
 - title: Research & Solution Design
   description: Not sure where to start? We research your options, prototype approaches, and present clear pathways forward — so you can make informed decisions before committing budget.
   icon: lightbulb
