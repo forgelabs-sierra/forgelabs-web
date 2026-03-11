@@ -12,7 +12,7 @@ export function SiteFooter() {
               Empowering businesses to stay competitive through practical AI adoption and automation strategies that enhance human capabilities and drive measurable results.
             </p>
             <a
-              href="https://www.linkedin.com/company/forgelabs-nz"
+              href="https://www.linkedin.com/company/forge-labs-nz"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-5 text-sm text-white/40 hover:text-white/80 transition-colors"
