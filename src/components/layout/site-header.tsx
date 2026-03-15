@@ -37,7 +37,7 @@ export function SiteHeader() {
             className="h-8 w-8"
           />
           <span className={`
-            font-semibold text-slate-900 transition-all duration-300 ease-in-out
+            font-bold text-xl text-slate-900 tracking-tight transition-all duration-300 ease-in-out
             ${scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100 w-auto'}
           `}>
             Forge Labs
