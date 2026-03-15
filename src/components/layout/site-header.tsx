@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -15,12 +15,33 @@ const navLinks = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 transition-all duration-300">
       <div className="max-w-6xl mx-auto px-6 flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center gap-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.svg" alt="Forge Labs" style={{ height: '32px', width: 'auto', minWidth: '120px' }} />
+          <img 
+            src="/logo.svg" 
+            alt="Forge Labs" 
+            className="h-8 w-8"
+          />
+          <span className={`
+            font-semibold text-slate-900 transition-all duration-300 ease-in-out
+            ${scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100 w-auto'}
+          `}>
+            Forge Labs
+          </span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map(l => (
