@@ -13,39 +13,18 @@
 {{/features}}
 
 {{services}}
-- title: AI Strategy & Roadmap
-  description: Map out where AI delivers the most value in your organisation. We assess readiness, identify high-impact opportunities, and build a practical roadmap from pilot to scale.
+- title: AI Strategy & Advisory
+  description: Assess where AI fits, build a practical roadmap, and guide your team from first pilot to full adoption.
   icon: map
-- title: AI-Powered Developer Productivity
-  description: Multiply your development team's output without hiring. We embed AI tooling into your existing dev workflow — code generation, review, testing, and documentation — so your engineers ship faster with fewer defects.
-  icon: code
-- title: Legacy Codebase Modernisation
-  description: Unlock codebases that have outgrown their documentation. We use AI to reverse-engineer understanding, generate documentation, and chart a modernisation path.
-  icon: file-search
-- title: Agentic AI Development
-  description: Build autonomous AI agents that handle multi-step workflows end-to-end. From GCP ADK to custom agent architectures, we design, build, and deploy agents that work alongside your team.
+- title: Agentic AI & Automation
+  description: Design and deploy AI agents and automated workflows that handle multi-step business processes end-to-end.
   icon: bot
-- title: Enterprise AI Deployment
-  description: Deploy and configure enterprise AI platforms — Gemini Enterprise, custom portals, and domain-specific AI gems. We handle tuning, access control, and integration.
-  icon: server
-- title: Google Workspace & GCP AI Tooling
-  description: Build AI-powered workflows and agents directly inside the tools your team already uses. Gmail, Docs, Sheets, Drive — automated with intelligence, not just macros.
-  icon: mail
-- title: AI Platform & Stack Advisory
-  description: Cut through the noise. We evaluate AI platforms, models, and tooling against your actual requirements — then recommend the stack that fits your budget, team, and timeline.
-  icon: search
-- title: AI-Enhanced Business Analysis
-  description: Apply AI to business analysis and project workflows — from requirements gathering to stakeholder reporting. Faster insights, better-structured deliverables, less manual work.
-  icon: bar-chart-3
-- title: AI Adoption Project Management
-  description: End-to-end project delivery for AI initiatives. We manage the full lifecycle from strategy and vendor selection through to rollout, training, and handover.
-  icon: kanban
-- title: OpenClaw Mac Mini — Onsite AI Deployment
-  description: Deploy an always-on AI assistant inside your business on a dedicated Mac Mini. OpenClaw runs on your own hardware and network — no shared cloud infrastructure, no third-party platforms. Your data goes directly to Anthropic's API under your own account and their enterprise privacy commitments. We handle setup, configuration, and integration so your team gets the full power of agentic AI on day one.
+- title: Developer Productivity & Modernisation
+  description: Embed AI into your dev workflow — code generation, review, testing, documentation — and unlock legacy codebases that have outgrown their teams.
+  icon: code
+- title: On-Premise AI Deployment
+  description: Run AI on your own hardware and network with OpenClaw — no shared cloud, no third-party platforms, full data sovereignty from day one.
   icon: cpu
-- title: Research & Solution Design
-  description: Not sure where to start? We research your options, prototype approaches, and present clear pathways forward — so you can make informed decisions before committing budget.
-  icon: lightbulb
 {{/services}}
 
 {{cta title="Ready to Transform Your Business?" subtitle="Let's discuss how AI and automation can help your organisation stay competitive and focus on what matters most." image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80&auto=format" overlay="dark"}}
