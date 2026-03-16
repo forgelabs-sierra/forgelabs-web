@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Team', href: '#team' },
   { label: 'Contact', href: '#contact' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/forgelabs-nz', external: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/forge-labs-nz', external: true },
 ]
 
 export function SiteHeader() {
