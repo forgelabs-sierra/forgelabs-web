@@ -8,7 +8,7 @@ export function CTABanner({ title, subtitle, button_text, button_link }: CTAProp
       <div className="absolute inset-0 bg-grid-pattern opacity-40" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 opacity-20" style={{ background: 'radial-gradient(ellipse, hsl(221, 83%, 55%) 0%, transparent 70%)' }} />
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white mb-4 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4 leading-tight">
           {title}
         </h2>
         {subtitle && (

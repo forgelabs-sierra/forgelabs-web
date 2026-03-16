@@ -34,7 +34,7 @@ export function HeroSection({ title, subtitle, cta, cta2, image }: HeroProps) {
           <span className="text-xs font-medium text-white/70 tracking-wide">AI Consulting & Implementation</span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.95] text-white mb-6">
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.95] text-white mb-6">
           {title}
         </h1>
 
